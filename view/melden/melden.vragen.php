@@ -24,10 +24,34 @@
                     <option>Nee</option>
                 </select>
                 <div class="workaround" id="workaround-<?=$show['question']['vraagNR']?>-ja">
-                	<?=$show['question']['ja']?>
+					<?
+					if (!is_numeric($show['question']['ja'])) {
+						$ID_W = str_replace("W", "", $show['question']['ja']);
+						
+						$show['workaround'] = $model->melden->getWorkaroundByID_W($ID_W, "assoc");
+						?>
+                        <?=ucfirst($show['workaround']['TXT_W_Omschrijving'])?>.<br />
+                        Workaround: <?=ucfirst($show['workaround']['TXT_W'])?>.
+                        <?
+					} else {
+						$show['question']['ja'];
+					}
+					?>
                 </div>
                 <div class="workaround" id="workaround-<?=$show['question']['vraagNR']?>-nee">
-                	<?=$show['question']['nee']?>
+                	<?
+					if (!is_numeric($show['question']['nee'])) {
+						$ID_W = str_replace("W", "", $show['question']['nee']);
+						
+						$show['workaround'] = $model->melden->getWorkaroundByID_W($ID_W, "assoc");
+						?>
+                        <?=ucfirst($show['workaround']['TXT_W_Omschrijving'])?>.<br />
+                        Workaround: <?=ucfirst($show['workaround']['TXT_W'])?>.
+                        <?
+					} else {
+						$show['question']['nee'];
+					}
+					?>
                 </div>
             </div>
 			<?
