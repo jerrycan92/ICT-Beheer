@@ -3,25 +3,25 @@ include_once(defaults("BASE_PATH") . "model/model.php");
 
 class MeldenModel extends Model {
 	function getQuestionscripts ($type = "data") {
-		$data['questionscripts'] = mysql_query("SELECT DISTINCT poNR, probleem, omschrijving
+		$data['questionscripts'] = mysql_query("SELECT DISTINCT ID_HS, ID_Omschrijving, Omschrijving
                                         		FROM Vragenscripts
-												ORDER BY probleem");
+												ORDER BY ID_HS DESC");
 										
 		return $this->setFormat($data['questionscripts'], $type);
 	}
 	
-	function getQuestionscriptBypoNR ($poNR, $type = "data") {
-		$data['questionscript'] = mysql_query("SELECT DISTINCT probleem, omschrijving
+	function getQuestionscriptBypoNR ($ID_Omschrijving, $type = "data") {
+		$data['questionscript'] = mysql_query("SELECT DISTINCT ID_HS, Omschrijving
                                         		FROM Vragenscripts
-												WHERE poNR = '" . mysql_real_escape_string($poNR) . "'");
+												WHERE ID_Omschrijving = '" . mysql_real_escape_string($ID_Omschrijving) . "'");
 										
 		return $this->setFormat($data['questionscript'], $type);	
 	}
 	
-	function getQuestionsBypoNR ($poNR, $type = "data") {
-		$data['questions']	 = mysql_query("SELECT vraag, vraagNR, ja, nee
+	function getQuestionsBypoNR ($ID_Omschrijving, $type = "data") {
+		$data['questions']	 = mysql_query("SELECT Vraag, ID_Vraag, Ja, Nee
 											FROM Vragenscripts
-											WHERE poNR = '" . mysql_real_escape_string($poNR) . "'");
+											WHERE ID_Omschrijving = '" . mysql_real_escape_string($ID_Omschrijving) . "'");
 											
 		return $this->setFormat($data['questions'], $type);
 	}

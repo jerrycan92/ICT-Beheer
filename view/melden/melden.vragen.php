@@ -52,30 +52,31 @@
 		?>
         <p class="title-big">
 			<?
-            $show['questionscript'] = $model->melden->getQuestionscriptBypoNR($_POST['poNR'], "assoc");
-            ?>
-            <?=$show['questionscript']['probleem']?>&nbsp;<font style="font-size: 18px;"><?=$show['questionscript']['omschrijving']?></font>
+            $show['questionscript'] = $model->melden->getQuestionscriptBypoNR($_POST['ID_Omschrijving'], "assoc");
+			$show['hardwaresoort'] = $model->hardware->getHardwareSoortByID($show['questionscript']['ID_HS'], "assoc");
+			?>
+            <?=ucfirst($show['hardwaresoort']['TXT_HS_Naam'])?>&nbsp;<font style="font-size: 18px;"><?=$show['questionscript']['Omschrijving']?></font>
         </p>
         <div class="paper">
             <?
-                $data['questions'] = $model->melden->getQuestionsBypoNR($_POST['poNR']);
+                $data['questions'] = $model->melden->getQuestionsBypoNR($_POST['ID_Omschrijving']);
                 while ($show['question'] = mysql_fetch_assoc($data['questions'])) {
                 ?>
-                <div class="field vragen" id="vraag-<?=$show['question']['vraagNR']?>">
-                    <label for=""><?=$show['question']['vraag']?></label><br />
-                    <select name="vraag[<?=$show['question']['vraagNR']?>]" class="meldenVragenAntwoorden" style="margin-left: -6px; margin-top: 10px;">
+                <div class="field vragen" id="vraag-<?=$show['question']['ID_Vraag']?>">
+                    <label for=""><?=$show['question']['Vraag']?></label><br />
+                    <select name="vraag[<?=$show['question']['ID_Vraag']?>]" class="meldenVragenAntwoorden" style="margin-left: -6px; margin-top: 10px;">
                         <option>Kiezen</option>
                         <option>Ja</option>
                         <option>Nee</option>
                     </select>
                     <?
-                    if (!is_numeric($show['question']['ja'])) {
-                        $ID_W = str_replace("W", "", $show['question']['ja']);
+                    if (!is_numeric($show['question']['Ja'])) {
+                        $ID_W = str_replace("W", "", $show['question']['Ja']);
                     }
                     ?>
-                    <div class="workaround <?=$ID_W?>" id="workaround-<?=$show['question']['vraagNR']?>-ja">
+                    <div class="workaround <?=$ID_W?>" id="workaround-<?=$show['question']['ID_Vraag']?>-ja">
                         <?
-                        if (!is_numeric($show['question']['ja'])) {
+                        if (!is_numeric($show['question']['Ja'])) {
                             $show['workaround'] = $model->melden->getWorkaroundByID_W($ID_W, "assoc");
                             ?>
                             <?=ucfirst($show['workaround']['TXT_W_Omschrijving'])?>.<br />
@@ -83,7 +84,7 @@
                             <?
                         } else {
                             ?>
-                            <?=$show['question']['ja']?>
+                            <?=$show['question']['Ja']?>
                             <?
                         }
                         ?>
@@ -91,13 +92,13 @@
                     
                     <?
                     $ID_W = "";
-                    if (!is_numeric($show['question']['nee'])) {
-                        $ID_W = str_replace("W", "", $show['question']['nee']);
+                    if (!is_numeric($show['question']['Nee'])) {
+                        $ID_W = str_replace("W", "", $show['question']['Nee']);
                     }
                     ?>
-                    <div class="workaround <?=$ID_W?>" id="workaround-<?=$show['question']['vraagNR']?>-nee">
+                    <div class="workaround <?=$ID_W?>" id="workaround-<?=$show['question']['ID_Vraag']?>-nee">
                         <?
-                        if (!is_numeric($show['question']['nee'])) {
+                        if (!is_numeric($show['question']['Nee'])) {
                             $show['workaround'] = $model->melden->getWorkaroundByID_W($ID_W, "assoc");
                             ?>
                             <?=ucfirst($show['workaround']['TXT_W_Omschrijving'])?>.<br />
@@ -105,7 +106,7 @@
                             <?
                         } else {
                             ?>
-                            <?=$show['question']['nee']?>
+                            <?=$show['question']['Nee']?>
                             <?
                         }
                         ?>
