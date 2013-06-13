@@ -1,3 +1,6 @@
+<?
+restrictionCheckStop();
+?>
 <div class="article">
     <p class="title-big">
         Welkom!

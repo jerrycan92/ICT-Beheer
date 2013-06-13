@@ -6,9 +6,13 @@ $(document).ready(function() {
 	var actualQuestion = 1;
 	$(".workaround").hide();
 	$(".vragen").hide();
+	$(".next").hide();
 	$("#vraag-1").show();
 	
 	$(".meldenVragenAntwoorden").live("change", function () {
+		$(".next").hide();
+		$(".workaround").hide();
+		
 		var answer = $(this).val();
 		var question = $(this).attr("name");
 		var answerShow = (question + "[" + answer.toLowerCase() + "]").replace("vraag", "workaround");
@@ -20,17 +24,15 @@ $(document).ready(function() {
 		
 		if (actualQuestion > questionNR) {
 			for (questionNR++; questionNR < 100; questionNR++) {
-				$(".workaround").hide();
 				$("#vraag-" + questionNR).hide();
 				$("[name='vraag[" + questionNR + "]']").val($("[name='vraag[" + questionNR + "]'] option:first").val());
 			}
 		}
 		
 		if (!$.isNumeric(answerShowContent)) {
-			$(".workaround").hide();
 			$("#" + answerShow).show();
+			$(".next").show();
 		} else {
-			$(".workaround").hide();
 			$("#vraag-" + answerShowContent.replace(/\s{1,}/g,'')).show();
 			actualQuestion = answerShowContent.replace(/\s{1,}/g,'');
 		}
