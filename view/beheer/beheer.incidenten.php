@@ -1,6 +1,6 @@
 <div class="article">
     <p class="title-big">
-        ik ben lelijk!
+        Drol!
     </p>
 </div>
 
