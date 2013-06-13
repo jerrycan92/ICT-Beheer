@@ -55,7 +55,7 @@ function restrictionCheck ($got, $needed = 1) {
 
 function restrictionCheckStop ($needed = 1) {
 	if (restrictionCheck(restrictions(), $needed) != false) {
-		echo restrictionCheck(restrictions(), $);
+		echo restrictionCheck(restrictions(), $needed);
 		exit();
 	}	
 }
