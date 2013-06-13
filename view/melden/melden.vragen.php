@@ -69,6 +69,7 @@
 			<?
 		}
 		?>
+        <form method="post" action="<?=defaults("BASE_SHORT")?>melden/vragen/">
         <div class="field next">
         	<input type="hidden" name="choosenWorkaround" value="" />
         	<input type="submit" name="next" value="Volgende" style="float: right;" />
