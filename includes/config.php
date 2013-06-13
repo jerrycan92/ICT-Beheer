@@ -14,7 +14,11 @@ function defaults ($r) {
 }
 
 function restrictions ($type = "actual") {
-	$restrictions['actual'] = 1;
+	if (isset($_SESSION['restriction'])) {
+		$restrictions['actual'] = $_SESSION['restriction'];
+	} else {
+		$restrictions['actual'] = 0;	
+	}
 	
 	return $restrictions[$type];
 }

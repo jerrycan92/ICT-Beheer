@@ -5,7 +5,7 @@ function menuSetup ($active = "") {
 		"Home" => defaults("BASE_SHORT") . "index/view/",
 		"Melden" => defaults("BASE_SHORT") . "melden/meld/",
 		"Contact" => "#",
-		"Beheer" => defaults("BASE_SHORT") . "beheer/incidenten/"
+		"Beheer" => defaults("BASE_SHORT") . "beheer/inlog/"
 	);
 	
 	$returning = "";
@@ -53,9 +53,9 @@ function restrictionCheck ($got, $needed = 1) {
 	}
 }
 
-function restrictionCheckStop () {
-	if (restrictionCheck(restrictions()) != false) {
-		echo restrictionCheck(restrictions());
+function restrictionCheckStop ($needed = 1) {
+	if (restrictionCheck(restrictions(), $needed) != false) {
+		echo restrictionCheck(restrictions(), $);
 		exit();
 	}	
 }
