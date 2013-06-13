@@ -99,6 +99,29 @@ html, body {
 			padding: 10px 20px 10px 20px;
 		}
 		
+		.article .content { 
+			width: 669px;
+			
+			padding: 15px 40px 20px 20px;
+			
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			font-size: 14px;
+			color: #000;
+		}
+			.article .field label {
+				font-family: Arial, Helvetica, sans-serif;
+				font-weight: bold;
+				font-size: 16px;
+				color: #000;
+				
+				padding-left: 15px;
+				margin-top: 10px;
+				margin-bottom: 5px;
+				
+				text-shadow: 0px 1px 0px #FFF;
+			}
+		
 		.article .paper {
 			background: url(../images/Paper-Top.png) top no-repeat, url(../images/Paper-Bottom.png) bottom no-repeat, url(../images/Paper-Middle.png) center repeat-y;
 			
@@ -106,6 +129,8 @@ html, body {
 			min-height: 220px;	
 			
 			padding: 30px 40px 20px 40px;
+			
+			margin-bottom: 15px;
 		}
 			.article .paper .field {
 				position: relative;

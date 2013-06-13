@@ -70,10 +70,25 @@
 		}
 		?>
         <form method="post" action="<?=defaults("BASE_SHORT")?>melden/vragen/">
-        <div class="field next">
-        	<input type="hidden" name="choosenWorkaround" value="" />
-        	<input type="submit" name="next" value="Volgende" style="float: right;" />
-        </div>
+            <div class="field next">
+                <input type="hidden" name="choosenWorkaround" value="" />
+                <label for="">Identificatienummer Hardware Component</label><br />
+                <select name="TXT_HC_Identificatiecode" style="margin-left: -6px; margin-top: 10px;">
+                    <?
+                    $data['hardwareIDs'] = $model->hardware->getHardwareIDs();
+                    ?>
+                    <option value="----">----</option>
+                    <?
+                    while ($show['hardwareID'] = mysql_fetch_assoc($data['hardwareIDs'])) {
+                        ?>
+                        <option value="<?=$show['hardwareID']['TXT_HC_Identificatiecode']?>"><?=$show['hardwareID']['TXT_HC_Identificatiecode']?></option>
+                        <?
+                    }
+                    ?>
+                </select>
+                <input type="submit" name="send" value="Stuur rapport" style="float: right; margin-top: 5px;" />
+            </div>
+        </form>
         <div style="float: none; clear: both; height: 20px;"></div>
     </div>
 </div>

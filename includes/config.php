@@ -7,7 +7,8 @@ function defaults ($r) {
 	$defaults = array (
 		"BASE_PATH" => $_SERVER['DOCUMENT_ROOT'] . "/",
 		"BASE_SHORT" => "/",
-		"SUB_FOLDER" => false
+		"SUB_FOLDER" => false,
+		"HOME" => "http://ict-beheer.jeffreyzant.nl"
 	);
 	
 	return $defaults[$r];

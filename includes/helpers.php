@@ -10,7 +10,7 @@ function menuSetup ($active = "") {
 	
 	$elementsAdmin = array (
 		"Home" => defaults("BASE_SHORT") . "index/view/",
-		"Incidentmanagement" => defaults("BASE_SHORT") . "incidentmanagement/view/",
+		"Incidenten" => defaults("BASE_SHORT") . "incidentmanagement/view/",
 		"Uitloggen" => defaults("BASE_SHORT") . "beheer/inlog/"
 	);
 	
