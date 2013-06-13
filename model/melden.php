@@ -24,23 +24,5 @@ class MeldenModel extends Model {
 											
 		return $this->setFormat($data['questions'], $type);
 	}
-	
-	/*
-	function getVragenscripts ($id, $type = "data") {
-		$data['brand'] = mysql_query("SELECT DISTINCT probleem
-                                        FROM vragenscripts
-                                        WHERE id = '" . mysql_real_escape_string($id) . "'");
-										
-		return $this->setFormat($data['brand'], $type);
-	}
-	
-	function getBrands ($type = "data") {
-		$data['brands'] = mysql_query("SELECT id, name
-											FROM brands
-											ORDER BY name");	
-		
-		return $this->setFormat($data['brands'], $type);
-	}
-	*/
 }
 ?>

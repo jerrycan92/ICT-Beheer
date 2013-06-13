@@ -4,7 +4,8 @@ function menuSetup ($active = "") {
 	$elements = array (
 		"Home" => defaults("BASE_SHORT") . "index/view/",
 		"Melden" => defaults("BASE_SHORT") . "melden/meld/",
-		"Contact" => "#"
+		"Contact" => "#",
+		"Beheer" => defaults("BASE_SHORT") . "beheer/incidenten/"
 	);
 	
 	$returning = "";
