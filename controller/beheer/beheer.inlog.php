@@ -2,7 +2,7 @@
 include("../controller.php");
 
 $controller = new Controller();
-$models = false;
+$models = "user";
 $seo = false;
 
 $controller->mainController($models, false, "Beheer", $seo);

@@ -1,4 +1,3 @@
-
 <div class="article">
     <p class="title-big">
         Beheer systeem
@@ -8,12 +7,15 @@
 <div class="page-title">
     <p>
         <?
-		if (isset($_SESSION['restriction'])) {
-			echo "Welkom bent ingelogd, u kunt nu bovenaan nieuwe menu's selecteren.";
+		if ($_SESSION['restriction']) {
+			echo "U word nu uitgelogd.";
+			$_SESSION["restriction"] = 0;
 		} else {
 			if (isset($_POST["password"])) {
-				if(md5($_POST["password"]) == getWachtwoordfromDatabase(md5($_POST["password"]), $_POST["username"])) {
+				$show['password'] = $model->user->getPasswordByUsername($_POST['username'], "assoc");
+				if(md5($_POST["password"]) == $show['password']['Wachtwoord']) {
 					$_SESSION["restriction"] = 1;
+					echo "U bent ingelogd.";
 				}
 			} else {
 				?> 
