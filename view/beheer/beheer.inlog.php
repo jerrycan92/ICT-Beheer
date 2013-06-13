@@ -8,7 +8,7 @@
     <p>
         <?
 		if ($_SESSION['restriction']) {
-			echo "U word nu uitgelogd.";
+			echo "U wordt nu uitgelogd.";
 			$_SESSION["restriction"] = 0;
 		} else {
 			if (isset($_POST["password"])) {

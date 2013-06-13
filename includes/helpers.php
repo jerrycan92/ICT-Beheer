@@ -8,7 +8,16 @@ function menuSetup ($active = "") {
 		"Beheer" => defaults("BASE_SHORT") . "beheer/inlog/"
 	);
 	
+	$elementsAdmin = array (
+		"Home" => defaults("BASE_SHORT") . "index/view/",
+		"Uitloggen" => defaults("BASE_SHORT") . "beheer/inlog/"
+	);
+	
 	$returning = "";
+	
+	if ($_SESSION['restriction'] == 1) {
+		$elements = $elementsAdmin;	
+	}
 	
 	foreach ($elements as $element => $link) {
 		$activeHTML = "";
