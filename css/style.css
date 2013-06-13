@@ -138,7 +138,7 @@ html, body {
 				}
 			
 /* Universal */
-select, input[type="text"] {
+select, input[type="text"], input[type="password"] {
 	background-color: transparent;
 	
 	height: 43px; 
