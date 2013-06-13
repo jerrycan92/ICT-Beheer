@@ -34,7 +34,9 @@
                         Workaround: <?=ucfirst($show['workaround']['TXT_W'])?>.
                         <?
 					} else {
-						$show['question']['ja'];
+						?>
+                        <?=$show['question']['ja']?>
+                        <?
 					}
 					?>
                 </div>
@@ -49,7 +51,9 @@
                         Workaround: <?=ucfirst($show['workaround']['TXT_W'])?>.
                         <?
 					} else {
-						$show['question']['nee'];
+						?>
+                        <?=$show['question']['nee']?>
+                        <?
 					}
 					?>
                 </div>

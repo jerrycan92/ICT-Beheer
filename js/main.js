@@ -22,7 +22,7 @@ $(document).ready(function() {
 			for (questionNR++; questionNR < 100; questionNR++) {
 				$(".workaround").hide();
 				$("#vraag-" + questionNR).hide();
-				//$("[name='vraag[" + questionNR + "]']").reset();
+				$("[name='vraag[" + questionNR + "]']").val($("[name='vraag[" + questionNR + "]'] option:first").val());
 			}
 		}
 		
@@ -30,6 +30,7 @@ $(document).ready(function() {
 			$(".workaround").hide();
 			$("#" + answerShow).show();
 		} else {
+			$(".workaround").hide();
 			$("#vraag-" + answerShowContent.replace(/\s{1,}/g,'')).show();
 			actualQuestion = answerShowContent.replace(/\s{1,}/g,'');
 		}
