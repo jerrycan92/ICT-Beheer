@@ -6,8 +6,15 @@
         </p>
         <select name="poNR" style="margin-left: 10px; width: 520px; height: 66px;" class="big" >
         	<?
+			$actualProblem = "";
     		$data['questionscripts'] = $model->melden->getQuestionscripts();
 			while ($show['questionscript'] = mysql_fetch_assoc($data['questionscripts'])) {
+				if (!$acutalProblem || $actualProblem != $show['questionscript']['probleem']) {
+					?>
+                    <option disabled="disabled"><?=$show['questionscript']['probleem']?></option>
+                    <?
+					$actualProblem = $show['questionscript']['probleem'];	
+				}
 				?><option value="<?=$show['questionscript']['poNR']?>"><?=$show['questionscript']['omschrijving']?></option><?
 			}
 			?>

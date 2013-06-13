@@ -47,6 +47,15 @@ class Model {
 					$succes = false;	
 				}
 			}
+			if ($check == "doesExists") {
+				$data = mysql_query("SELECT " . $field . "
+												FROM " . $table . "
+												WHERE " . $field . " = '" . $content . "'");	
+				
+				if (mysql_num_rows($data) == 0) {
+					$succes = false;	
+				}
+			}
 		}
 		
 		return $succes;

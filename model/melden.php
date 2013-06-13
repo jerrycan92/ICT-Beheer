@@ -4,7 +4,8 @@ include_once(defaults("BASE_PATH") . "model/model.php");
 class MeldenModel extends Model {
 	function getQuestionscripts ($type = "data") {
 		$data['questionscripts'] = mysql_query("SELECT DISTINCT poNR, probleem, omschrijving
-                                        		FROM Vragenscripts");
+                                        		FROM Vragenscripts
+												ORDER BY probleem");
 										
 		return $this->setFormat($data['questionscripts'], $type);
 	}
