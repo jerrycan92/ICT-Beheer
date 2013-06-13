@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/$ controller/$1/$1.$2.php
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/$ controller/$1/$1.$2.php
+
+RewriteRule ^$ controller/index/index.view.php
