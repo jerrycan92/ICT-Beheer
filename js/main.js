@@ -31,6 +31,7 @@ $(document).ready(function() {
 		
 		if (!$.isNumeric(answerShowContent)) {
 			$("#" + answerShow).show();
+			$("[name='choosenWorkaround']").val($("#" + answerShow).attr("class").replace("workaround ", ""));
 			$(".next").show();
 		} else {
 			$("#vraag-" + answerShowContent.replace(/\s{1,}/g,'')).show();

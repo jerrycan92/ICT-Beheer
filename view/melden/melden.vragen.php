@@ -70,7 +70,8 @@
 		}
 		?>
         <div class="field next">
-        	<input type="submit" name="" value="Volgende" style="float: right;" />
+        	<input type="hidden" name="choosenWorkaround" value="" />
+        	<input type="submit" name="next" value="Volgende" style="float: right;" />
         </div>
         <div style="float: none; clear: both; height: 20px;"></div>
     </div>
