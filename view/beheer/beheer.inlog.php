@@ -10,7 +10,7 @@
     <p>
          <?php
 			if(isset($_SESSION['restriction'])){
-			
+				echo " Welkom " . $ . " bent ingelogd, u kunt nu bovenaan nieuwe menu's selecteren."
 			}else{
 		?> <form action="<?=defaults("BASE_SHORT")?>beheer/inlog/" method="SESSION">
 				<table>
@@ -24,6 +24,7 @@
 					</tr>
 				</table>
 			</form>
+		<?php
 			}
 		 ?>
     <p>
