@@ -23,11 +23,14 @@
                     <option>Ja</option>
                     <option>Nee</option>
                 </select>
-                <div class="workaround" id="workaround-<?=$show['question']['vraagNR']?>-ja">
+                <?
+				if (!is_numeric($show['question']['ja'])) {
+					$ID_W = str_replace("W", "", $show['question']['ja']);
+				}
+				?>
+                <div class="workaround <?=$ID_W?>" id="workaround-<?=$show['question']['vraagNR']?>-ja">
 					<?
 					if (!is_numeric($show['question']['ja'])) {
-						$ID_W = str_replace("W", "", $show['question']['ja']);
-						
 						$show['workaround'] = $model->melden->getWorkaroundByID_W($ID_W, "assoc");
 						?>
                         <?=ucfirst($show['workaround']['TXT_W_Omschrijving'])?>.<br />
@@ -40,11 +43,16 @@
 					}
 					?>
                 </div>
-                <div class="workaround" id="workaround-<?=$show['question']['vraagNR']?>-nee">
+                
+                <?
+				$ID_W = "";
+				if (!is_numeric($show['question']['nee'])) {
+					$ID_W = str_replace("W", "", $show['question']['nee']);
+				}
+				?>
+                <div class="workaround <?=$ID_W?>" id="workaround-<?=$show['question']['vraagNR']?>-nee">
                 	<?
 					if (!is_numeric($show['question']['nee'])) {
-						$ID_W = str_replace("W", "", $show['question']['nee']);
-						
 						$show['workaround'] = $model->melden->getWorkaroundByID_W($ID_W, "assoc");
 						?>
                         <?=ucfirst($show['workaround']['TXT_W_Omschrijving'])?>.<br />
