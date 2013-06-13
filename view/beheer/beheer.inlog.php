@@ -12,7 +12,7 @@
 			echo "Welkom bent ingelogd, u kunt nu bovenaan nieuwe menu's selecteren.";
 		} else {
 			if (isset($_POST["password"])) {
-				if(md5($_POST["password"]) == 1) {
+				if(md5($_POST["password"]) == getWachtwoordfromDatabase(md5($_POST["password"]), $_POST["username"])) {
 					$_SESSION["restriction"] = 1;
 				}
 			} else {
