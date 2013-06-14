@@ -116,7 +116,7 @@
                             <?
                         } else {
 							// Volgende vraag
-                            $show['question']['Nee'];
+                            echo $show['question']['Nee'];
                         }
                         ?>
                     </div>
