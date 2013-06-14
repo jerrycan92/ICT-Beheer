@@ -33,7 +33,7 @@ restrictionCheckStop();
 						}
 						?>    
                     </td>
-					<td><a href='"Home" => defaults("BASE_SHORT") . "incidentmanagement/edit/"'>edit</a>
+					<td><a href="<?=defaults("BASE_SHORT")?>incidentmanagement/edit/<?=$show['incident']['ID_I']?>/">Bewerken</a>
                 </tr>
             <?
             }

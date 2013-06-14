@@ -3,7 +3,7 @@ restrictionCheckStop();
 ?>
 <div class="article">
     <p class="title-big">
-        Incidenten
+        Incidenten <?=$controller->segments(3)?>
     </p>
 	
     <div class="content">
