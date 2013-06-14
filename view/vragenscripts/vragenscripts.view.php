@@ -13,11 +13,11 @@ restrictionCheckStop();
             $questionscript['id'] = $show['questionscript']['ID_Omschrijving'];
 			$questionscript['description'] = $show['questionscript']['Omschrijving'];
 			
-			echo "<strong>" . $questionscript['description'] . "</strong><br />";
+			echo $questionscript['description'] . "<br />";
 			
 			$data['questions'] = $model->melden->getQuestionsByIDO($questionscript['id']);
 			while ($show['question'] = mysql_fetch_assoc($data['questions'])) {
-				echo $show['question']['Vraag'] . "<br />";	
+				echo "&nbsp;&nbsp;&nbsp;&gt;&nbsp;" . $show['question']['Vraag'] . "<br />";	
 			}
         }
         ?>
