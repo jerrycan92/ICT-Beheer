@@ -33,6 +33,7 @@ restrictionCheckStop();
 						}
 						?>    
                     </td>
+					<td><a href='"Home" => defaults("BASE_SHORT") . "incidentmanagement/edit/"'>edit</a>
                 </tr>
             <?
             }
