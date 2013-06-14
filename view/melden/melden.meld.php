@@ -11,6 +11,7 @@
 			
 			//Vragenscripts weergeven
 			while ($show['questionscript'] = mysql_fetch_assoc($data['questionscripts'])) {
+				
 				// Indien nieuwe categorie een uitgeschakelde option toevoegen als titel
 				if ($actualProblem != $show['questionscript']['ID_HS']) {
 					if ($show['questionscript']['ID_HS'] == 0) {
