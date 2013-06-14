@@ -89,6 +89,7 @@ html, body {
 		
 		width: 749px;
 	}
+		
 		.article .title-big {
 			font-family: Arial, Helvetica, sans-serif;
 			font-weight: bold;
@@ -139,6 +140,11 @@ html, body {
 				color: #000;
 				
 				text-shadow: 0px 1px 0px #FFF;	
+			}
+			
+			.article .paper .adminControls {
+				position: absolute;
+				right: 35px;
 			}
 			
 			.article .paper .field {
