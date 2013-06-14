@@ -56,7 +56,7 @@
         <p class="title-big">
 			<?
 			// Titel
-            $show['questionscript'] = $model->melden->getQuestionscriptBypoNR($_POST['ID_Omschrijving'], "assoc");
+            $show['questionscript'] = $model->melden->getQuestionscriptByIDO($_POST['ID_Omschrijving'], "assoc");
 			if ($show['questionscript']['ID_HS'] == 0) {
 				echo "Programma's";
 			} else {
@@ -68,7 +68,7 @@
         <div class="paper">
             <?
 			// Vragenscript weergeven
-			$data['questions'] = $model->melden->getQuestionsBypoNR($_POST['ID_Omschrijving']);
+			$data['questions'] = $model->melden->getQuestionsByIDO($_POST['ID_Omschrijving']);
 			while ($show['question'] = mysql_fetch_assoc($data['questions'])) {
                 ?>
                 <div class="field vragen" id="vraag-<?=$show['question']['ID_Vraag']?>">

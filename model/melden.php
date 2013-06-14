@@ -10,7 +10,7 @@ class MeldenModel extends Model {
 		return $this->setFormat($data['questionscripts'], $type);
 	}
 	
-	function getQuestionscriptBypoNR ($ID_Omschrijving, $type = "data") {
+	function getQuestionscriptByIDO ($ID_Omschrijving, $type = "data") {
 		$data['questionscript'] = mysql_query("SELECT DISTINCT ID_HS, Omschrijving
                                         		FROM Vragenscripts
 												WHERE ID_Omschrijving = '" . mysql_real_escape_string($ID_Omschrijving) . "'");
@@ -18,7 +18,7 @@ class MeldenModel extends Model {
 		return $this->setFormat($data['questionscript'], $type);	
 	}
 	
-	function getQuestionsBypoNR ($ID_Omschrijving, $type = "data") {
+	function getQuestionsByIDO ($ID_Omschrijving, $type = "data") {
 		$data['questions']	 = mysql_query("SELECT Vraag, ID_Vraag, Ja, Nee
 											FROM Vragenscripts
 											WHERE ID_Omschrijving = '" . mysql_real_escape_string($ID_Omschrijving) . "'");
