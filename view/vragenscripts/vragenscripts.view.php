@@ -8,9 +8,17 @@ restrictionCheckStop();
 	
     <div class="content">
 		<?
-        $data['vragenscripts'] = $model->melden->getQuestionscripts();
-        while ($show['vragenscript'] = mysql_fetch_assoc($data['incident'])) {
-            echo $show['incident']['ID_I'] . "&nbsp;" . $show['incident']['TXT_I_HC_Identificatiecode'] . "<br />";
+        $data['questionscripts'] = $model->melden->getQuestionscripts();
+        while ($show['questionscript'] = mysql_fetch_assoc($data['questionscripts'])) {
+            $questionscript['id'] = $show['questionscript']['ID_Omschrijving'];
+			$questionscript['description'] = $show['questionscript']['Omschrijving'];
+			
+			echo "<strong>" . $questionscript['description'] . "</strong><br />";
+			
+			$data['questions'] = $model->melden->getQuestionsByIDO($questionscript['id']);
+			while ($show['question'] = mysql_fetch_assoc($data['questions'])) {
+				echo $show['question']['Vraag'] . "<br />";	
+			}
         }
         ?>
     </div>
