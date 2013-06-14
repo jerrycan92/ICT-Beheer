@@ -22,7 +22,7 @@
                     $error = true;
                     ?>Er is geen correcte workaround.<br /><?
                 }
-                if (!$model->fieldChecks ($hardwareID, "doesExists", "Hardware_Componenten", "TXT_HC_Identificatiecode")) {
+                if (!$model->fieldChecks ($hardwareID, "isFilled, doesExists", "Hardware_Componenten", "TXT_HC_Identificatiecode")) {
                     $error = true;
                     ?>Het Identificatienummer van het Hardware Component is niet correct ingevuld.<br /><?
                 }
