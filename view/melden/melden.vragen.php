@@ -6,6 +6,7 @@
 </div>
 <div class="article">
 	<?
+	// Indien rapport opsturen
 	if ($_POST['send']) {
 		?>
         <p class="title-big">
@@ -14,6 +15,7 @@
         <div class="paper">
         	<p>
 				<?
+				// Velden controlleren
                 $workaround = $_POST['choosenWorkaround'];
                 $hardwareID = $_POST['TXT_HC_Identificatiecode'];
                 
@@ -28,6 +30,7 @@
                 }
                 
                 if ($error == false) {
+					//Opslaan indien geen fouten
                     $model->doQuery("INSERT INTO Incidenten 
                                         (TXT_I_HC_Identificatiecode, DAT_I_gemeld, FID_I_W) VALUES 
                                         ('" . mysql_real_escape_string($hardwareID) . "',
@@ -52,15 +55,21 @@
 		?>
         <p class="title-big">
 			<?
+			// Titel
             $show['questionscript'] = $model->melden->getQuestionscriptBypoNR($_POST['ID_Omschrijving'], "assoc");
-			$show['hardwaresoort'] = $model->hardware->getHardwareSoortByID($show['questionscript']['ID_HS'], "assoc");
-			?>
-            <?=ucfirst($show['hardwaresoort']['TXT_HS_Naam'])?>&nbsp;<font style="font-size: 18px;"><?=$show['questionscript']['Omschrijving']?></font>
+			if ($show['questionscript']['ID_HS'] == 0) {
+				echo "Programma's";
+			} else {
+				$show['hardwaresoort'] = $model->hardware->getHardwareSoortByID($show['questionscript']['ID_HS'], "assoc");
+				echo ucfirst($show['hardwaresoort']['TXT_HS_Naam']);
+			}
+			?>&nbsp;<font style="font-size: 18px;"><?=$show['questionscript']['Omschrijving']?></font>
         </p>
         <div class="paper">
             <?
-                $data['questions'] = $model->melden->getQuestionsBypoNR($_POST['ID_Omschrijving']);
-                while ($show['question'] = mysql_fetch_assoc($data['questions'])) {
+			// Vragenscript weergeven
+			$data['questions'] = $model->melden->getQuestionsBypoNR($_POST['ID_Omschrijving']);
+			while ($show['question'] = mysql_fetch_assoc($data['questions'])) {
                 ?>
                 <div class="field vragen" id="vraag-<?=$show['question']['ID_Vraag']?>">
                     <label for=""><?=$show['question']['Vraag']?></label><br />
@@ -77,15 +86,15 @@
                     <div class="workaround <?=$ID_W?>" id="workaround-<?=$show['question']['ID_Vraag']?>-ja">
                         <?
                         if (!is_numeric($show['question']['Ja'])) {
+							// Workaround
                             $show['workaround'] = $model->melden->getWorkaroundByID_W($ID_W, "assoc");
                             ?>
                             <?=ucfirst($show['workaround']['TXT_W_Omschrijving'])?>.<br />
                             Workaround: <?=ucfirst($show['workaround']['TXT_W'])?>.
                             <?
                         } else {
-                            ?>
-                            <?=$show['question']['Ja']?>
-                            <?
+							// Volgende vraag
+                            echo $show['question']['Ja'];
                         }
                         ?>
                     </div>
@@ -99,15 +108,15 @@
                     <div class="workaround <?=$ID_W?>" id="workaround-<?=$show['question']['ID_Vraag']?>-nee">
                         <?
                         if (!is_numeric($show['question']['Nee'])) {
+							// Workaround
                             $show['workaround'] = $model->melden->getWorkaroundByID_W($ID_W, "assoc");
                             ?>
                             <?=ucfirst($show['workaround']['TXT_W_Omschrijving'])?>.<br />
                             Workaround: <?=ucfirst($show['workaround']['TXT_W'])?>.
                             <?
                         } else {
-                            ?>
-                            <?=$show['question']['Nee']?>
-                            <?
+							// Volgende vraag
+                            $show['question']['Nee'];
                         }
                         ?>
                     </div>
@@ -115,6 +124,7 @@
                 <?
             }
             ?>
+            <!-- Formulier -->
             <form method="post" action="<?=defaults("BASE_SHORT")?>melden/vragen/">
                 <div class="field next">
                     <input type="hidden" name="choosenWorkaround" value="" />
